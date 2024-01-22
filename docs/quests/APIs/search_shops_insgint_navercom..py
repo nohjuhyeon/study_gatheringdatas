@@ -1,17 +1,14 @@
 # 데이터명 : 조달청_나라장터 공공데이터개방표준서비스
-# from https://www.data.go.kr/iim/api/selectAPIAcountView.do
+# from https://developers.naver.com/docs/serviceapi/datalab/shopping/shopping.md#%EC%87%BC%ED%95%91%EC%9D%B8%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%B6%84%EC%95%BC%EB%B3%84-%ED%8A%B8%EB%A0%8C%EB%93%9C-%EC%A1%B0%ED%9A%8C
 import requests 
 
 # url 주소 변수 지정
 url = 'https://openapi.naver.com/v1/datalab/shopping/categories'
 
-header1 = {'Host': 'openapi.naver.com',
-           'X-Naver-Client-Id':'cRMNURzoedZxUwUyW0Hh',
-           'X-Naver-Client-Secret':'87bY0YnCTe',
-           'Content-Type': 'application/json',
-           'Content-Length': '360'
+header = {'X-Naver-Client-Id':'cRMNURzoedZxUwUyW0Hh',
+           'X-Naver-Client-Secret':'87bY0YnCTe'
            }
-param1 = {
+bodys = {
     "startDate": "2017-08-01",
     "endDate": "2017-09-30",
     "timeUnit": "month",
@@ -26,7 +23,7 @@ param1 = {
 
 pass
 # respose라는 변수로 받음
-response = requests.post(url,json = param1, headers=header1) 
+response = requests.post(url,json=bodys, headers=header) 
 pass
 # response의 내용을 출력
 print(response.content) 

@@ -21,8 +21,6 @@ import json
 contents = json.loads(response.content)
 pass
 
-
-
 # mongoDB 저장
 from pymongo import MongoClient
 # mongodb에 접속 -> 자원에 대한 class
@@ -39,8 +37,9 @@ result = collection.insert_one({'lastBulidDate': contents['lastBuildDate'],
                                 'display':contents['display']})
 pass
 for i in range(len(contents['items'])):
-    contents['items'][i]['id_relative'] = result.inserted_id
+    contents['items'][i]['id_relative'] = result.inserted_id            # 내가 insert한 값을 변수로 지정해놓으면 내가 insert한 값의 id를 가져올 수 있음
 pass
 collection = database['serach_shop_list']
 collection.delete_many({})
-collection.insert_many(contents['items'])
+results =collection.insert_many(contents['items'])
+pass
