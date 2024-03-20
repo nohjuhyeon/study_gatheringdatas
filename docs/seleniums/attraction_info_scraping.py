@@ -46,7 +46,7 @@ time.sleep(5)
 from selenium.webdriver.common.by import By          # - 정보 획득
 from selenium.webdriver.common.keys import Keys
 # 로그인 하기
-for i in range(665,len(attraction_name_list)+1):
+for i in range(666,len(attraction_name_list)+1):
     search_btn = browser.find_element(by=By.CSS_SELECTOR,value='#inp_search_mo')
     search_btn.click()
     text_input= browser.find_element(by=By.CSS_SELECTOR,value='#inp_search_index')
